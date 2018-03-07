@@ -11,4 +11,5 @@ import retrofit2.http.POST;
 public interface GetRequest_Interface {
     @POST("apkversion.php?plat=s00&channel=s02")
     Call<Translation> getCall();
+
 }

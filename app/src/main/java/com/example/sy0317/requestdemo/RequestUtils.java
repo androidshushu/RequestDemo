@@ -51,4 +51,30 @@ public class RequestUtils {
             }
         });
     }
+    public void requestFanyi(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://fy.iciba.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        GetRequest_Interfaces request_interfaces = retrofit.create(GetRequest_Interfaces.class);
+        Call<Translations> calls = request_interfaces.getCall();
+        calls.enqueue(new Callback<Translations>() {
+            @Override
+            public void onResponse(Call<Translations> call, Response<Translations> response) {
+
+                response.body().showLog();
+            }
+
+            @Override
+            public void onFailure(Call<Translations> call, Throwable t) {
+            Log.d("requestFanyi ","request onFailure");
+            }
+        });
+
+
+
+
+
+    }
 }
